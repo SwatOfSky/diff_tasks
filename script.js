@@ -5,3 +5,7 @@ console.log(
       .filter(element => !(element % 2))
       .reduceRight((accumulator, element) => accumulator + Math.sqrt(element), 0)
 );
+
+//заполняет массив значениями
+const fill = (arraySize, value) => new Array(arraySize).fill(value);
+console.log(fill(5, 's'))
