@@ -17,5 +17,19 @@ console.log(
 
 //очищает от ненужного массив
 const data = [0, 1, false, 2, undefined, '', 3, null];
-const compact = (data) => data.filter((el) => el);
+const compact = (array) => array.filter((el) => el);
 console.log(compact(data))
+
+// формирует пары
+const data1 = [['a', 1], ['b', 2]];
+const fromPairs = (array) => array.reduce((acc, value) => {
+  if (Array.isArray(value)) {
+    acc[value[0]] = value[1];
+  }
+  return acc;
+}, {});
+console.log(fromPairs(data1))
+
+// неважно
+const arrayQ = ['test1', 'test2', 'test3'];
+console.log(Object.assign({}, arrayQ));
