@@ -15,3 +15,7 @@ console.log(
 .map((el, id, givenArr) => givenArr[givenArr.length - id - 1])
 )
 
+//очищает от ненужного массив
+const data = [0, 1, false, 2, undefined, '', 3, null];
+const compact = (data) => data.filter((el) => el);
+console.log(compact(data))
