@@ -36,7 +36,6 @@ console.log(Object.assign({}, arrayQ));
 
 //убирает ненужные занчения из массива
 const data2 = [1, 2, 3, 1, 2, 12];
-
 const without = (array, ...args) => {
   let filteredArray = [...array];
   for (let i = 0; i < args.length; i += 1) {
@@ -44,5 +43,11 @@ const without = (array, ...args) => {
   }
   return filteredArray;
 }
-
 console.log(without(data2, 1, 2));
+
+//убирает повторяющиеся
+const data3 = [1, 2, 1, 2, 3, 4, 57, 4];
+
+const unique = (array) => array.filter((element, id) => array.indexOf(element) === id);
+
+console.log(unique(data3));
