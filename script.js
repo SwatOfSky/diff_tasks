@@ -47,7 +47,21 @@ console.log(without(data2, 1, 2));
 
 //убирает повторяющиеся
 const data3 = [1, 2, 1, 2, 3, 4, 57, 4];
-
 const unique = (array) => array.filter((element, id) => array.indexOf(element) === id);
-
 console.log(unique(data3));
+
+//сравнивает массивы между собой
+const arr1 = [1, 2, 3, 4];
+const arr2 = [1, 2, 3, 4];
+const arr3 = [1, 2, 3, 5];
+const arr4 = [1, 2, 3, 4, 5];
+const isEqual = (firstArray, secondArray) => {
+  if (firstArray.length !== secondArray.length) {
+    return false;
+  }
+  const compared = firstArray.map((el, id) => secondArray[id] === el);
+  return !compared.includes(false);
+}
+console.log(isEqual(arr1, arr2));
+console.log(isEqual(arr1, arr3));
+console.log(isEqual(arr1, arr4));
