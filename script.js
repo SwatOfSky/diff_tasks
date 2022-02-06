@@ -65,3 +65,47 @@ const isEqual = (firstArray, secondArray) => {
 console.log(isEqual(arr1, arr2));
 console.log(isEqual(arr1, arr3));
 console.log(isEqual(arr1, arr4));
+
+//преобразует глубокий массив в одномерный
+const data4 = [1, 2, [3, 4, [5]]];
+const flatten = (array) => array.reduce((acc, val) => acc.concat(Array.isArray(val) ? flatten(val) : val), [])
+console.log(flatten(data4));
+
+//разделяет массив по заданному размеру
+const data5 = [1, 2, 3, 4, 5, 6, 7];
+const chunk = (array, size) => {
+  const chunkedArr = [];
+  let index = 0;
+  while (index < array.length) {
+    chunkedArr.push(array.slice(index, size + index));
+    index += size;
+  }
+  return chunkedArr;
+}
+console.log(chunk(data5, 2))
+console.log(chunk(data5, 3))
+
+//составляет из нескольких массивов один, в котором будут только повторяющиеся значения
+const arr6 = [1, 2];
+const arr7 = [2, 3];
+const arr8 = ['a', 'b'];
+const arr9 = ['b', 'c'];
+const arr10 = ['b', 'e', 'c'];
+const arr11 = ['b', 'b', 'e'];
+const arr12 = ['b', 'c', 'e'];
+const arr13 = ['b', 'e', 'c'];
+const intersection = (...arrays) => {
+  const result = arrays[0].filter((element) => {
+    const indexOfElement = arrays[1].indexOf(element);
+    if (indexOfElement >= 0) {
+      return element
+    }
+  });
+  if (arrays.length > 2) {
+    intersection(result, ...arrays.slice(2, arrays.length));
+  }
+  return Array.from(new Set(result));
+};
+console.log(intersection(arr6, arr7))
+console.log(intersection(arr8, arr9, arr10))
+console.log(intersection(arr11, arr12, arr13))
