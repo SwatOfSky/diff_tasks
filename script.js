@@ -33,3 +33,16 @@ console.log(fromPairs(data1))
 // неважно
 const arrayQ = ['test1', 'test2', 'test3'];
 console.log(Object.assign({}, arrayQ));
+
+//убирает ненужные занчения из массива
+const data2 = [1, 2, 3, 1, 2, 12];
+
+const without = (array, ...args) => {
+  let filteredArray = [...array];
+  for (let i = 0; i < args.length; i += 1) {
+    filteredArray = filteredArray.filter((el) => el !== args[i])
+  }
+  return filteredArray;
+}
+
+console.log(without(data2, 1, 2));
